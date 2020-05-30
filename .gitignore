@@ -21,6 +21,7 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+<<<<<<< HEAD
 
 /frontendshopping/target/
 /backendshopping/target/
@@ -33,3 +34,5 @@ shoppingbackend/.classpath
 frontendshopping/.project
 shoppingbackend/.project
 .project
+=======
+>>>>>>> 133326b7e7115479c66d76e1c9e3a21376a90547
