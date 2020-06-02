@@ -13,27 +13,31 @@
 
 <head>
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description"
-	content="Online Shopping Website Using Spring MVC and Hibernate">
-<meta name="author" content="Khozema Nullwala">
-<%-- 	<meta name="_csrf" content="${_csrf.token}"> --%>
-<%-- 	<meta name="_csrf_header" content="${_csrf.headerName}"> --%>
-
-<title>Online Shopping - ${title}</title>
-
-
-<!-- Bootstrap Core CSS 
-<link href="${css}/bootstrap.min.css" rel="stylesheet"> -->
-
-<!-- Bootstrap Theme -->
-<link href="${css}/bootstrap-theme.min.css" rel="stylesheet">
-<link href="${css}/bootstrap-theme.css" rel="stylesheet">
-
-<!-- Custom CSS -->
-<link href="${css}/shop-homepage.css" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<%-- 	<meta name="_csrf" content="${_csrf.token}"> --%>
+	<%-- 	<meta name="_csrf_header" content="${_csrf.headerName}"> --%>
+	<title>Tienda Online - ${title}</title>
+	
+	<script>
+		window.menu = '${title}';
+	
+		window.contextRoot = '${contextRoot}'
+	</script>
+	
+	<!-- Bootstrap Core CSS  
+	<link href="${css}/bootstrap.min.css" rel="stylesheet">-->
+	
+	<!-- Bootstrap Theme  -->
+	<link href="${css}/bootstrap-theme.css" rel="stylesheet">
+	
+	<!-- Datatables plugin CSS -->
+	<link href="${css}/jquery.dataTables.css" rel="stylesheet">
+	
+	<!-- Custom CSS -->
+	<link href="${css}/shop-homepage.css" rel="stylesheet">
+	
+	
 
 </head>
 
@@ -86,14 +90,12 @@
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
 
-		<!-- Bootstrap Core JavaScript -->
+		<!-- jQuery core JavaScript -->
+		<script src="${js}/jquery-3.3.1.min.js"></script>
+		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
-
-		<%-- 		<!-- DataTable Plugin -->
-		<script src="${js}/jquery.dataTables.js"></script>
-
-		<!-- DataTable Bootstrap Script -->
-		<script src="${js}/dataTables.bootstrap.js"></script> --%>
+		<!-- DataTable Plugin -->
+ 		<script src="${js}/jquery.dataTables.min.js"></script> 
 
 		<!-- 		<!-- DataTable Bootstrap Script -->
 		<%-- 		<script src="${js}/bootbox.min.js"></script> --%>
@@ -101,9 +103,7 @@
 		<!-- Self coded javascript -->
 		<script src="${js}/shop-homepage.js"></script>
 
-		<!-- Bootstrap core JavaScript -->
-		<script src="${js}/jquery.min.js"></script>
-		<script src="${js}/bootstrap.bundle.min.js"></script>
+
 
 
 	</div>

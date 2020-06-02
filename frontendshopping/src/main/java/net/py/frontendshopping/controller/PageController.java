@@ -22,7 +22,7 @@ public class PageController {
 	@RequestMapping(value = {"/home" })
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("title", "Home");
+		mv.addObject("title", "Inicio");
 
 //		logger.info("Inside PageController index method - INFO");
 //		logger.debug("Inside PageController index method - DEBUG");
