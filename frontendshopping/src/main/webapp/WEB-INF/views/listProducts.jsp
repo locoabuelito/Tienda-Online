@@ -1,3 +1,4 @@
+
 <div class="container">
 
 	<div class="row">
@@ -49,7 +50,7 @@
 						<thead class="table-dark">
 							<tr>
 								<th></th>
-								<th>Nombre</th>
+								<th>Modelo</th>
 								<th>Marca</th>
 								<th>Precio</th>
 								<th>Cant. Disponible</th>
