@@ -24,26 +24,36 @@ public class Product implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String code;
-	@NotBlank(message = "Ingrese el nombre del producto")
+	
+	@NotBlank(message = "Por favor, ingrese el modelo del producto!")
 	private String name;
-	@NotBlank(message = "Ingrese el nombre de la marca")
+	
+	@NotBlank(message = "Por favor, ingrese la marca del producto!")
 	private String brand;
+	
 	@NotBlank(message = "Ingrese la descripcion!")
 	@JsonIgnore
 	private String description;
+	
 	@Column(name = "unit_price")
-	@Min(value = 1, message = "Por favor seleccione al menos un valor")
+	@Min(value = 1, message = "Por favor, ingrese un monto!")
 	private double unitPrice;
+	
+	@Column(name = "quantity")
+	@Min(value = 1, message = "Por favor, ingrese al menos un producto!")
 	private int quantity;
+	
 	@Column(name = "is_active")
-	@JsonIgnore
 	private boolean active;
+	
 	@Column(name = "category_id")
 	@JsonIgnore
 	private int categoryId;
+	
 	@Column(name = "supplier_id")
 	@JsonIgnore
 	private int supplierId;
+	
 	private int purchases;
 	private int views;
 	

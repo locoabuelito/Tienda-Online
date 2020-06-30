@@ -4,7 +4,8 @@
 		<div class="col-xs-12">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="${contextRoot}/home">Inicio</a></li>
-				<li class="breadcrumb-item"><a href="${contextRoot}/show/all/products">Productos</a></li>
+				<li class="breadcrumb-item"><a
+					href="${contextRoot}/show/all/products">Productos</a></li>
 				<li class="breadcrumb-item active">${product.name}</li>
 			</ol>
 		</div>
@@ -27,17 +28,43 @@
 			<hr />
 
 			<h4>
-				Precio: <strong> &#36; ${product.unitPrice} /-</strong>
+				Precio: <strong> &#36; ${product.unitPrice}</strong>
 			</h4>
 			<hr />
 
-			<h6>Cant. Disponible: ${product.quantity}</h6>
+			<!-- Deshabilitar direccionamiento  si quantity < 1 -->
+			<c:choose>
+				<c:when test="${product.quantity < 1}">
+					<h6>
+						<span style="color: red">Producto no disponible!</span>
+					</h6>
+				</c:when>
+				<c:otherwise>
+					<h6>Cant. Disponible: ${product.quantity}</h6>
+				</c:otherwise>
+			</c:choose>
+			
+			<!--  Deshabilitar boton de agregar  -->
+			<c:choose>	
+				<c:when test="${product.quantity < 1}">
+					<a href="javascript:void(0)" class="btn btn-success disabled">
+						<strike> <span class="glyphicon glyphicon-shopping-cart"></span>Agregar
+							a la lista de Compras
+						</strike>
+					</a>
+				</c:when>
+				<c:otherwise>
+					<a href="${contextRoot}/cart/add/${product.id}/product"
+						class="btn btn-success"> <span
+						class="glyphicon glyphicon-shopping-cart"></span> Agregar a la
+						lista de Compras
+					</a>
+				</c:otherwise>
 
-			<a href="${contextRoot}/cart/add/${product.id}/product" class="btn btn-success"> 
-				<span class="glyphicon glyphicon-shopping-cart"/> Agregar a la lista de Compras
-			</a>
-			<a href="${contextRoot}/show/all/products" class="btn btn-success"> 
-				<span class="glyphicon glyphicon-shopping-cart"/> Volver
+			</c:choose>
+
+			 <a href="${contextRoot}/show/all/products" class="btn btn-primary">
+				<span class="glyphicon glyphicon-shopping-cart" /> Volver
 			</a>
 		</div>
 	</div>
