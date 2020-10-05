@@ -23,7 +23,10 @@ $(function() {
 		break;
 	}
 
-	// Mostrar todos los productos
+	/*
+	 * ---------------------------- Lista de productos para el usuario
+	 * ----------------------------
+	 */
 	var $table = $('#productListTable');
 
 	if ($table.length) {
@@ -176,7 +179,10 @@ $(function() {
 	 * un cambio en el producto ' + value }); } else { checkbox.prop('checked',
 	 * !checked); } } }); });
 	 */
-	// Tabla para admin
+	/*
+	 * ---------------------------- Tabla para admin
+	 * ----------------------------
+	 */
 	var $adminProducTable = $('#adminProductsTables');
 
 	if ($adminProducTable.length) {
@@ -324,16 +330,23 @@ $(function() {
 														callback : function(
 																confirmed) {
 															if (confirmed) {
-																var activationUrl = window.contextRoot+'/manage/products/'+value+'/activation';
-																$.post(activationUrl, function(data){
-																	bootbox
-																	.alert({
-																		size : 'medium',
-																		title : 'Informacion',
-																		message : data
-																	});
-																});
-																
+																var activationUrl = window.contextRoot
+																		+ '/manage/products/'
+																		+ value
+																		+ '/activation';
+																$
+																		.post(
+																				activationUrl,
+																				function(
+																						data) {
+																					bootbox
+																							.alert({
+																								size : 'medium',
+																								title : 'Informacion',
+																								message : data
+																							});
+																				});
+
 															} else {
 																checkbox
 																		.prop(
@@ -346,5 +359,42 @@ $(function() {
 					}
 				});
 	}
+	/*
+	 * ---------------------------- Validacion para categoria
+	 * ----------------------------
+	 */
+	var $categoryForm = $('#categoryForm');
+	if ($categoryForm.length) {
+		$categoryForm
+				.validate({
+					rules : {
+						name : {
+							required : true,
+							minlength : 5
+						},
+						description : {
+							required : true
+						}
+					},
+					messages : {
+						name : {
+							required : 'Por favor, inserte el nombre de la categoria!',
+							minlength : 'Nombre de la categoria indefinida!'
+						},
+						description : {
+							required : 'Por favor, inserte la descripcion de la categoria!'
+						}
+					},
+					errorElement : 'em',
+					errorPlacement : function(error, element) {
+						error.addClass('help-block');
+						error.insertAfter(element);
+					}
 
+				});
+	}
+	/*
+	 * ---------------------------- Validacion para categoria
+	 * ----------------------------
+	 */
 });

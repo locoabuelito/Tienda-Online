@@ -14,7 +14,18 @@
 				<li id="inicio" class="nav-item"><a class="nav-link" href="${contextRoot}/home">Inicio</a></li>
 				<li id="listProducts" class="nav-item"><a class="nav-link" href="${contextRoot}/show/all/products">Productos</a></li>
 				<li id="manageProduct" class="nav-item"><a class="nav-link" href="${contextRoot}/manage/products">Control de Productos</a></li>
+				<li id="register" class="nav-item"> <a class="nav-link" href="${contextRoot}/register">Registrar</a></li>
+				<li id="login" class="nav-item"> <a class="nav-link" href="${contextRoot}/login">Iniciar Sesion</a></li>
 			</ul>
+			
+<!-- 			<ul class="nav navbar-nav navbar-right"> -->
+<!-- 				<li id="register"> -->
+<%-- 					<a href="${contextRoot}/register">Registrar</a> --%>
+<!-- 				</li> -->
+<!-- 				<li id="login"> -->
+<%-- 					<a href="${contextRoot}/login">Iniciar Sesion</a> --%>
+<!-- 				</li> -->
+<!-- 			</ul> -->
 		</div>
 	</div>
 </nav>

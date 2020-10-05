@@ -19,6 +19,15 @@ public class Cart implements Serializable{
 	private double grandTotal;
 	@Column(name = "cart_lines")
 	private int cartLines;
+	@Column(name = "user_id")
+	private int userId;
+	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	
 	public int getId() {
 		return id;

@@ -3,6 +3,7 @@ package net.py.backendshopping.dao;
 import java.util.List;
 
 import net.py.backendshopping.dto.Address;
+import net.py.backendshopping.dto.Cart;
 import net.py.backendshopping.dto.User;
 
 public interface UserDAO {
@@ -13,12 +14,12 @@ public interface UserDAO {
 
 	boolean add(User userDTO);
 
-	// adding and updating a new address
-	Address getAddress(int addressId);
-
 	boolean addAddress(Address addressDTO);
 
-	boolean updateAddress(Address addressDTO);
+	boolean addCart(Cart cartDTO);
+
+	// adding and updating a new address
+	Address getAddress(int addressId);
 
 	Address getBillingAddress(int userId);
 

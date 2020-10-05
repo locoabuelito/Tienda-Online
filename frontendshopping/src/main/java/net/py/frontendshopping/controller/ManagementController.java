@@ -126,4 +126,17 @@ public class ManagementController {
 		productDAO.update(product);
 		return (isActive) ? "Producto Desactivado exitosamente!" : "Producto Activado exitosamente!";
 	}
+	
+	// Agregar nueva categoria
+	@ModelAttribute("category")
+	public Category getCategory() {
+		return new Category();
+	}
+	
+	@RequestMapping(value = "/category", method=RequestMethod.POST)
+	public String manageCategoryAdd(@ModelAttribute("category") Category mCategory) {
+		categoryDAO.add(mCategory);
+		
+		return "redirect:/manage/category?success=category";
+	}
 }

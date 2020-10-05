@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import net.py.backendshopping.dao.UserDAO;
 import net.py.backendshopping.dto.Address;
+import net.py.backendshopping.dto.Cart;
 import net.py.backendshopping.dto.User;
 
 @Repository("userDAO")
@@ -81,7 +82,20 @@ public class UserDAOimpl implements UserDAO {
 			return false;
 		}
 	}
-
+	
+	@Override
+	public boolean addCart(Cart cartDTO) {
+		// TODO Auto-generated method stub
+		try {			
+			// will look for this code later and why we need to change it
+			sessionFactory.getCurrentSession().persist(cartDTO);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
+		}
+	}
+	/*
 	@Override
 	public boolean updateAddress(Address addressDTO) {
 		// TODO Auto-generated method stub
@@ -92,7 +106,7 @@ public class UserDAOimpl implements UserDAO {
 		catch(Exception ex) {
 			return false;
 		}
-	}
+	}*/
 
 	@Override
 	public Address getBillingAddress(int userId) {

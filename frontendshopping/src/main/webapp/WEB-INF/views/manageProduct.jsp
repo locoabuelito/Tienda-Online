@@ -2,9 +2,9 @@
 
 <!-- Vista para usuario admin -->
 <div class="container">
-	<!-- Panel de insercion  -->
-	<c:if test="${not empty message}">
+	<!-- Panel de mensajes  -->
 
+	<c:if test="${not empty message}">
 		<div class="col-xs-12">
 			<div class="alert alert-success" role="alert">
 				<button typue="button" class="close" data-dismiss="alert">
@@ -12,6 +12,9 @@
 			</div>
 		</div>
 	</c:if>
+
+
+	<!-- Panel de Productos -->
 	<div class="row">
 		<div class="col-md-offset-2 col-md-8">
 			<div class="panel panel-primary">
@@ -54,7 +57,7 @@
 						</div>
 
 						<div class="form-group row">
-							<label class="control-label col-sm-2 col-form-label"
+							<label class="control-label col-form-label"
 								for="unitPrice">Precio Unitario &#36&#36</label>
 							<div class="col-sm-10">
 								<sf:input type="number" path="unitPrice" class="form-control"
@@ -95,14 +98,15 @@
 									<sf:hidden path="active" />
 									<sf:hidden path="purchases" />
 									<sf:hidden path="views" />
+
+									<button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#myCategoryModal">Agregar Categoria</button>
 								</div>
 							</div>
-
 						</div>
 
-						<div class="form-group row">
-							<div class="col-md-offset-4 col-md-4">
-								<input type="submit" name="submit" value="Guardar"
+						<div class="form-group row text-right">
+							<div class="col-md-12">
+								<input type="submit" name="submit" value="Guardar Producto"
 									class="btn btn-primary" />
 							</div>
 						</div>
@@ -112,9 +116,50 @@
 		</div>
 	</div>
 
+
+	<!-- Modal para categorias -->
+	<div class="modal fade" id="myCategoryModal" role="dialog" tabindex="-1" aria-labelledby="myCategoryModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myCategoryModalLabel">Nueva
+						Categoria</h4>
+				</div>
+				<!-- Contenido del modal -->
+				<div class="modal-body">
+					<sf:form modelAttribute="category" id="categoryForm" class="form-horizontal"
+						action="${contextRoot}/manage/category" method="POST">
+						<div class="form-group row">
+							<label for="category_name" class="control-label col-md-4">Nombre Categoria</label>
+							<div class="cold-md-8 validate">
+								<sf:input type="text" path="name" id="category_name" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="category_description" class="control-label col-md-4">Descripcion de la
+								Categoria</label>
+							<div class="cold-md-8 validate">
+								<sf:textarea path="description" id="category_description" class="form-control" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<div class="col-md-offset-4 col-md-8">
+								<input type="submit" value="Aceptar" class="btn btn-success">
+							</div>
+						</div>
+					</sf:form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
 	<!-- Activacion/Desactivacion de productos -->
-
-
 	<div class="col-xs-12">
 		<h3>Lista de Productos</h3>
 	</div>
